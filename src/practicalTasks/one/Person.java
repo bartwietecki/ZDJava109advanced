@@ -2,6 +2,7 @@ package practicalTasks.one;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Person implements Comparable<Person> {
 
@@ -115,11 +116,18 @@ public class Person implements Comparable<Person> {
     // metoda wyświetlająca rodzica a potem dziecko
     public String personInfoWithChildren() {
         String childrenConcat = "";
-        for (Person child : childrenList) {
-            childrenConcat += child.personInfo(false) + "\n\t";
-        }
+//        for (Person child : childrenList) {
+//            childrenConcat += child.personInfo(false) + "\n\t";
+//        }
+
+        childrenConcat = childrenList.stream()
+                .map(child -> child.personInfo(false))
+                .collect(Collectors.joining("\n\t"));
+
+
         return personInfo(true) + "\n\t" + childrenConcat;
     }
+
 
     // część 4
     // ta metoda służy do porównywania po nazwisku i imieniu

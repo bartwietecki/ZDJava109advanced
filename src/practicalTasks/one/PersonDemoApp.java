@@ -2,6 +2,7 @@ package practicalTasks.one;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -33,7 +34,7 @@ public class PersonDemoApp {
         System.out.println();
         System.out.println("Druga część zadania");
 
-        Person person4 = new Person("Jan", "Ząbal", 24, "m", 0);
+        Person person4 = new Person("Jerzy", "Ząbal", 24, "m", 0);
         Person person5 = new Person("Elżbieta", "Grysik", 15, "f", 0);
         Person person6 = new Person("Wiesława", "Stalowa", 65, "f", 5);
 
@@ -95,5 +96,54 @@ public class PersonDemoApp {
                 .flatMap(Collection::stream) // flatMap zamienia nam to na Stream(Person)
                 // no i teraz mamy płaską strukturę Stream(Person) i możemy każdą osobę wrzucić na drukarkę
                 .forEach(child -> System.out.println(child.personInfo(false)));
+
+        // triki z collectors.joining :
+        System.out.println("\n1. collectors.joining tricks");
+        String joiningResult1 = allPeople.stream()
+                .map(Person::getFirstName)
+                .collect(Collectors.joining(", "));
+        System.out.println(joiningResult1);
+
+        System.out.println("\n2. collectors.joining tricks");
+        String joiningResult2 = allPeople.stream()
+                .map(Person::getFirstName)
+                .collect(Collectors.joining(", ", "{", "}"));
+        System.out.println(joiningResult2);
+
+        System.out.println("\n3. collectors.joining tricks");
+        String joiningResult3 = allPeople.stream()
+                .map(Person::getFirstName)
+                .collect(Collectors.joining(">, <", "[<", ">]"));
+        System.out.println(joiningResult3);
+
+        // metodka reduce
+        System.out.println("\n Reduce - suma lat ludzi");
+        int sumOfYears = allPeople.stream()
+                .map(Person::getAge)
+//                .reduce(0, (x, y) -> (x+y));
+                // 0 - od jakiej wartości początkowej zaczynamy
+                // wartoscBiezaca - wartosc poczatkowa lub po wykonaniu zdefiniowanej operacji na kolejnych
+                //                  elementach strumienia (w naszym przypadku wiek kolejnej osoby)
+                // kolejnyElement - wiek kolejnej osoby przychodzący w strumieniu
+        .reduce(0, (wartoscBiezaca, kolejnyElement) -> (wartoscBiezaca + kolejnyElement));
+        System.out.println("Suma lat ludzi wynosi: "
+                + sumOfYears);
+
+        // zrobienie mapy z naszej listy ludzi
+        System.out.println("\n Wygenerowanie hashMapy z listy (ludzi)");
+        Map<String, Person> peopleByName = allPeople.stream()
+                // Function.identity() mówi, żeby wykorzystać cały obiekt na którym pracujemy,
+                // w tym przypadku jest to jeden z obiektów klasy Person
+//                .collect(Collectors.toMap(Person::getFirstName, Function.identity()));
+                // zamieniamy na mapę czyli musimy zdefiniować klucz i wartość
+                // klucz definiujemy, że to będzie name (bo wywołujemy getName)
+                // wartością będzie to co wchodzi do collect ze strumienia,
+                // w naszym przypaddku wchodzi Person
+                .collect(Collectors.toMap(Person::getFirstName, x -> x));
+        System.out.println("Sprawdzenie mapy");
+        peopleByName.keySet().forEach(System.out::println);
+        peopleByName.values().forEach(person -> System.out.println(person.personInfo(false)));
+
     }
 }
+
