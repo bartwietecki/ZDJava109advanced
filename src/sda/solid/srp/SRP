@@ -1,0 +1,11 @@
+SRP - Single Responsibility Principle
+
+czyli
+
+zasada pojedynczej odpowiedzialnosci
+albo inaczej
+pojedynczego powodu do zmiany
+
+Chodzi o to zeby konstruowac klasy / obiekty na tyle maly
+że realizuja one jeden spojny cel - logikę biznesową
+albo sluza do przechowywania zestawu spojnych danych (np. dane o samochodzie, bez mieszania danych o np. garazu)

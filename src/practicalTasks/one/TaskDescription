@@ -1,0 +1,39 @@
+Napisz klasę Person, która zawiera następujące pola:
+imię, nazwisko, wiek, płeć, liczba dzieci (płeć jako enum)
+
+Dołóż metodę która wypisze podstawowe informacje: wszystko co powyżej, ale liczbę dzieci
+tylko jeśli parametr wejściowy metody będzie ustawiony na true.
+
+Następnie zdefiniuj kilka obiektów tej klasy.
+
+Wypisz wszystkie osoby które mają więcej niż 30 lat.
+--
+Wypisz wszystkie osoby, które mają 2 lub 3 dzieci.
+
+--
+
+(2 część zadania)
+Zrób tak żeby płeć można było przekazać jako "m", "f", a wyświetlać przy wypisywaniu ma się jako "male", "female".
+To ma być nowy, dodatkowy sposób deklarowania obiektu Person, dotychczasowy zostaje
+
+--
+
+(3 część zadania)
+Do klasy Person dodaj listę dzieci.
+Dodaj metodę, która umożliwi dodawanie dziecka do rodzica.
+Dodaj nową metodę wyświetlania osoby tak, żeby w pierwszej linii wyświetliła się ta osoba, a w kolejnych jej dzieci.
+Wypróbuj czy działa
+
+--
+
+(4 część zadania)
+Dodaj możliwość porównania osób po nazwisku i imieniu
+Wyświetl listę wszystkich zdeklarowanych osób, posortowaną po nazwisku i imieniu
+
+
+--
+
+(5 część zadania)
+Do osób, które mają dzieci dodaj te dzieci.
+Zrób listę wsystkich osób.
+Wypisz dla tej listy wszystkie dzieci.

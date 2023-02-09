@@ -1,0 +1,11 @@
+LSP czyli Liskov Swap Principle
+
+czyli
+
+zasada podstawień Barbary Liskov,
+która mówi, że jeśli mamy ogólny typ podstawowy
+i kilka jego typów pochodnych to wywołanie metody z typu podstawowego
+na typie pochodnym ma za każdym razem zadziałać
+
+np. mamy ogolnie zadeklarowany typ Vehicle i bedziemy miec podtypy Truck, Car, Motorbike to wywolanie metody "jedź" ma
+za każdym razem zadziałać, na każdych z nich

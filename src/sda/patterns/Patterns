@@ -1,0 +1,44 @@
+Wzorce projektowe - ogólnie przyjęte sposoby pisania często pojawiających się
+problemów / zadań
+
+GoF - Ganf of Four - grupka 4 amerykańskich nauczycieli programowania która opracowała
+dużą ilość wzorców
+
+Wzorce dzielimy na:
+
+* kreacyjne - omawiające sposoby tworzenia obiektów:
+ --singleton(y) - do tworzenia dokładnie jednego obiektu dla klasy
+ --fabryki - do tworzenia obiektów z jednej rodziny
+ --fabryki abstrakcyjne - gdzie dla każdego obiektu z rodziny mamy osobną fabrykę i jeden punkt wejścia do fabryk
+ --builder - gdy mam część (albo ani jednego) parametrów wymaganch, a część opcjonalną
+ --prototype - gdy mamy wzorzec wzorcowy i "odkopiowujemy" go na nowo do bieżącego użycia
+
+* strukturalne - definiują powiązania między obiektami:
+ --facade (fasada) - umożliwia wystawienie spójnego, łatwego do zastosowania interfejsu
+ --proxy - służy jako warstwa bezpieczeństwa albo warstwa cache - "pamięci podręcznej"
+ -- flyweight - dzięki jego zastosowaniu możemy konstruować mniej obiektów i będą one mniejsze
+ --decorator - dokłada dodatkowe funkcjonalności do bazowego obiektu, otrzymujemy nadal obiekt tego samego typu
+ --composite - pozwala w ten sam sposób traktować obiekty proste i złożone, wykonując te same operacje na nich
+
+* behawioralne - dokładają nowe możliwości obiektom, sprawiając że obiekty wyglądają jak coś innego z większymi możliwościami
+ --templateMethod - definiuje algorytm wykonywania jakiegoś zadania, część kroków pozostawia do definicji
+    programiście "końcowemu", a część oraz kolejność wykonywania kroków jest odgórnie ustalona (nie mamy wpływu co
+    jest na początku lub na końcu "kanapki BigMac", ale mamy wpływ na to co jest w środku... Chodzi o to, że mamy
+    stałą liczbę kroków i stałą kolejność, obu tych elementów nie zmienimy, ale możemy zdefiniować ich ilość, tak mniej
+    więcej wygląda algorytm)
+ --strategy (policy) - strategia, bądź polityka (nazwy wymienne) - określają jak zaimplementować kilka różnych
+    algorytmów realizujących podobne zadanie
+ --command - pozwala "obudować" zadania jakie wykonuje klasa swoimi metodami o dodatkowe możliwości (np. logowanie,
+   trzymanie historii operacji, ...)
+ --chainOfResponsibility - wzorzec pozwalający na rozłożenie skomplikowanej weryfikacji na listę małaych, podobnych w budowie kroków
+    (sprawdzanie, weryfikacja uprawnień - często stosowana w dostępach do strony, itd.)
+ --memento - służy do zapamiętywania obrazu (stanu) innego obiektu
+ --visitor - polega na wyposażeniu różnych obiektów w taką samą funkcjonalność na potrzeby operacji która musi być wykonana podobnie
+    dla wszystkich tych obiektów
+
+    // dajmy na to że mamy jakiś sklep i mamy tam towary, cokolwiek.
+    // to te produkty ogolnie są różne, niektóre sprzedawane na kg, niektóre na sztuki, niektóre w pudełkach, każde mają
+    // różną charakterystyke, ale za każde trzeba zapłacić
+
+    wzorzec visitor bedzie sluzyl do tego aby kazdy z tych obiektow nie dosc zeby mial swoja cene to zeby jeszcze mozna bylo ewentualnie
+    stosowac promocje na nich, te promocje beda w osobnym obiektcie, zeby nie dodykac tych obiektow bazowych

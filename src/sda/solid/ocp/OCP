@@ -1,0 +1,7 @@
+OCP czyli Open Close Principle
+
+czyli
+
+Mamy pisać kod, który jest otwarty na dodawanie nowych funkcjonalności,
+ale zamknięty na zmianę istniejego kodu
+
