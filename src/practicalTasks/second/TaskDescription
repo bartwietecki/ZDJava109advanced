@@ -1,0 +1,27 @@
+Zrób strukturę klas:
+Animal
+Bird, Cat, Fish
+Eagle, PussyCat, Salmon
+
+W klasie Animal napisz metody:
+move
+sound
+z domyślnymi komunikatami (np. Zwierzę porusza się, Zwierzę wydaje dźwięk)
+
+W klasie Fish na pewno podmiana metody sound, żeby nie wydawała dźwięku
+
+W pozostałych klasach dowolność - możesz zrobić bardziej specyficzne postaci metod
+
+Które klasy zrobisz jako abstract? Jedną czy więcej
+Odp. Myślę, że Animal + każdą klasę, która zawiera gatunek zwierzęcia, tj. Bird, Cat, Fish
+
+-----
+(2 część zadania)
+W każdej z klas końcowych dodaj pole "name"
+A metodę getName() od samej góry struktury tak, żeby name można było użyć w metodach sound() i move()
+
+-----
+(3 część zadania)
+Zrób nową klasę z metodą main dla zwierzogrodu
+Dodaj kilka zwierząt
+Zapisz je do pliku tekstowego

@@ -132,6 +132,9 @@ public class PersonDemoApp {
         // zrobienie mapy z naszej listy ludzi
         System.out.println("\n Wygenerowanie hashMapy z listy (ludzi)");
         Map<String, Person> peopleByName = allPeople.stream()
+                // peek - przyjmuje to co jest na wejsciu i to samo oddaje na wyjsciu
+                // umożliwia wykonanie akcji która może ale nie musi mieć wpływu na przebieg programu
+                .peek(each -> System.out.println("Peek in between : " + each.personInfo(false)))
                 // Function.identity() mówi, żeby wykorzystać cały obiekt na którym pracujemy,
                 // w tym przypadku jest to jeden z obiektów klasy Person
 //                .collect(Collectors.toMap(Person::getFirstName, Function.identity()));
