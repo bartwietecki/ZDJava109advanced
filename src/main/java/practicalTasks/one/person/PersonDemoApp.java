@@ -1,4 +1,8 @@
-package practicalTasks.one;
+package practicalTasks.one.person;
+
+import practicalTasks.one.person.Gender;
+import practicalTasks.one.person.Person;
+import practicalTasks.one.person.PersonByAgeComparator;
 
 import java.util.Collection;
 import java.util.List;

@@ -1,4 +1,4 @@
-package practicalTasks.one;
+package practicalTasks.one.person;
 
 import java.util.ArrayList;
 import java.util.List;

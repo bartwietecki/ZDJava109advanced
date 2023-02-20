@@ -1,0 +1,26 @@
+Przenieś klasy związane z osobą do podpakietu "person".
+
+Dodaj klasę reprezentującą Pojazd i co najmniej wywodzącą się z niej klasę Samochód.
+
+Samochód ma mieć markę, model, rocznik, informacje o skrzyni biegów, ilości siedzeń, informacje o paliwie, pojemności silnika.
+
+Dodaj klasę Wypożyczalnia. Ma ona przechowywać samochody, te wypożyczone i dostępne.
+
+Dodaj możliwość wypożyczania samochodu - od - do, za ile. Wypożyczający ma być z klasy Person.
+
+Dodaj ewidencję wypożyczonych aut, z dodatkową informacją o ewentualnych opóźnieniach.
+
+Napisz testy :)
+ - człowiek wypożycza auto
+ - człowiek jest za młody na wypożyczenie auta
+ - wypożyczone auto oddane w terminie
+ - wypożyczone auto oddane po terminie
+
+ -------------------------------------------------------
+ 20/02/2023
+ Dokładamy nowy pakiet reprezentujący zajęcie.
+ Dokładamy interfejs reprezentujący zajęcie.
+ Dokładamy interfejsy dziedziczące po powyższym: praca, nauka.
+ Dokładamy interfejs dziedziczące po nauka: studiowanie, szkoła.
+
+ W każdym z tych interfejsów metoda "perform" z wejściowym parametrem String, wyjściowym parametrem String

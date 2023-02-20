@@ -1,4 +1,4 @@
-package practicalTasks.one;
+package practicalTasks.one.person;
 
 public enum Gender {
     MALE("m", "male", "mężczyzna"),

@@ -1,0 +1,6 @@
+ Dokładamy nowy pakiet reprezentujący zajęcie.
+ Dokładamy interfejs reprezentujący zajęcie.
+ Dokładamy interfejsy dziedziczące po powyższym: praca, nauka.
+ Dokładamy interfejs dziedziczące po nauka: studiowanie, szkoła.
+
+ W każdym z tych interfejsów metoda "perform" z wejściowym parametrem String, wyjściowym parametrem String
