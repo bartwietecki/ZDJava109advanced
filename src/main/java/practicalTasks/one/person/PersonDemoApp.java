@@ -1,18 +1,16 @@
 package practicalTasks.one.person;
 
-import practicalTasks.one.person.Gender;
-import practicalTasks.one.person.Person;
-import practicalTasks.one.person.PersonByAgeComparator;
-
+import java.io.*;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+
 public class PersonDemoApp {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
 
         Person person1 = new Person("Jan", "Kowalski", 33, Gender.MALE, 4);
         Person person2 = new Person("Janina", "Nowak", 18, Gender.FEMALE, 0);

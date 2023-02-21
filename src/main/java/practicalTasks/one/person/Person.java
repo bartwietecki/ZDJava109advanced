@@ -1,7 +1,9 @@
 package practicalTasks.one.person;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class Person implements Comparable<Person> {
@@ -31,8 +33,57 @@ public class Person implements Comparable<Person> {
         this.gender = Gender.findByAbbrv(gender);
         this.numberOfChildren = numberOfChildren;
         childrenList = new ArrayList<>();
-
     }
+
+
+
+    /**
+     * Kontynuacja zadania Java Zaawanasowana
+     * Opis zadania w Instructions (file).
+     */
+    public Person readFromFile(String fileName) throws FileNotFoundException {
+        File file = new File(fileName);
+        Scanner scanner = new Scanner(file);
+        scanner.useDelimiter("\\|");
+
+        String firstName = scanner.next();
+        String lastName = scanner.next();
+        int age = scanner.nextInt();
+        String gender = scanner.next();
+        int numberOfChildren = scanner.nextInt();
+
+        return new Person(firstName, lastName, age, gender, numberOfChildren);
+    }
+
+    public void writeToFile(String fileName, Person person) throws IOException {
+
+        FileWriter fileWriter = new FileWriter(fileName);
+
+        fileWriter.write(person.getFirstName() + "|");
+        fileWriter.write(person.getLastName() + "|");
+        fileWriter.write(person.getAge() + "|");
+        fileWriter.write(person.getGender() + "|");
+        fileWriter.write(person.getNumberOfChildren() + "|");
+    }
+
+    // INNA METODA, KTÓRA POLEGA NA:
+    // odczytywaniu plików i zapisywaniu ich zawartości w innym pliku. Ta metoda jest ogólną metodą do odczytywania
+    // plików w Javie i może być stosowana do odczytywania dowolnych plików, nie tylko plików tekstowych.
+    // W metodzie tej nie jest dokonywany żaden parsing danych
+    private static void fileReader() throws IOException {
+        var fileReader = new FileReader("src/main/resources/input");
+        var fileWriter = new FileWriter("src/main/resources/output");
+
+        int i;
+        while ((i = fileReader.read()) != -1) {
+            fileWriter.write(i);
+            System.out.println((char) i);
+        }
+        System.out.println((char) fileReader.read());
+    }
+
+
+
 
     public String getFirstName() {
         return firstName;

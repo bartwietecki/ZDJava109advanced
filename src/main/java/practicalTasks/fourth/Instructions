@@ -4,3 +4,9 @@
  Dokładamy interfejs dziedziczące po nauka: studiowanie, szkoła.
 
  W każdym z tych interfejsów metoda "perform" z wejściowym parametrem String, wyjściowym parametrem String
+
+ ----------
+ Dla klasy Person dodać możliwość odczytu osoby z pliku tekstowego oraz możliwość zapisu informacji o osobie do pliku tekstowego.
+ Poszczególnie pola oddzielamy "|".
+
+ Dla klasy Person dodać możliwość zapisu obiektu zserializowanego i odczytu obiektu zserializowanego
