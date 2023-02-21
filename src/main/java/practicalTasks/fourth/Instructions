@@ -10,3 +10,6 @@
  Poszczególnie pola oddzielamy "|".
 
  Dla klasy Person dodać możliwość zapisu obiektu zserializowanego i odczytu obiektu zserializowanego
+
+ Dodać możliwość odczytu i zapisu wielu Person-ów do / z pliku tekstowego
+ i do / z pliku z danymi serializowanymi

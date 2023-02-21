@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-public class Person implements Comparable<Person> {
+public class Person implements Serializable, Comparable<Person> {
 
     private String firstName;
     private String lastName;
@@ -136,6 +136,7 @@ public class Person implements Comparable<Person> {
     }
 
     // Metoda Grzegorza
+    /*
     public String personInfo(boolean showNumberOfChildren) {
         return new StringBuilder("Person: ")
                 .append(firstName)
@@ -150,6 +151,23 @@ public class Person implements Comparable<Person> {
                 .append(showNumberOfChildren ? numberOfChildren : "")
                 .toString();
     }
+
+     */
+
+    public String personInfo(boolean showNumberOfChildren) {
+        return new StringBuilder("Person: ")
+                .append(firstName)
+                .append(" ")
+                .append(lastName)
+                .append(", age: ")
+                .append(age)
+                .append(", gender: ")
+                .append(gender != null ? gender.getTranslationEng() : "")
+                .append(showNumberOfChildren ? ", children: " : "")
+                .append(showNumberOfChildren ? numberOfChildren : "")
+                .toString();
+    }
+
 
     // Moja metoda
     public void printInfoAboutPerson(boolean numberOfChildren) {
