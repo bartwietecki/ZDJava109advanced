@@ -1,6 +1,6 @@
 package practicalTasks.one.person;
 
-import java.io.*;
+import java.io.IOException;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -127,7 +127,7 @@ public class PersonDemoApp {
                 // wartoscBiezaca - wartosc poczatkowa lub po wykonaniu zdefiniowanej operacji na kolejnych
                 //                  elementach strumienia (w naszym przypadku wiek kolejnej osoby)
                 // kolejnyElement - wiek kolejnej osoby przychodzący w strumieniu
-        .reduce(0, (wartoscBiezaca, kolejnyElement) -> (wartoscBiezaca + kolejnyElement));
+                .reduce(0, (wartoscBiezaca, kolejnyElement) -> (wartoscBiezaca + kolejnyElement));
         System.out.println("Suma lat ludzi wynosi: "
                 + sumOfYears);
 
@@ -149,6 +149,15 @@ public class PersonDemoApp {
         peopleByName.keySet().forEach(System.out::println);
         peopleByName.values().forEach(person -> System.out.println(person.personInfo(false)));
 
+        Map<String, List<Person>> childrenBySurname = allPeople.stream()
+                .map(Person::getChildrenList)
+                .flatMap(Collection::stream)
+                // Collectors.toMap powoduje że mamy błąd bo jest więcej niż 1 osoba z tym samym nazwiskiem
+//                .collect(Collectors.toMap(Person::getLastName, Function.identity()));
+                // grupujemy elementy po nazwisku, pakujemy wartości z tym samym nazwiskiem do Listy
+                .collect(Collectors.groupingBy(Person::getLastName, Collectors.toList()));
+
+        System.out.println("Children by surname");
     }
 }
 

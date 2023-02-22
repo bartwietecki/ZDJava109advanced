@@ -13,3 +13,31 @@
 
  Dodać możliwość odczytu i zapisu wielu Person-ów do / z pliku tekstowego
  i do / z pliku z danymi serializowanymi
+
+===========================================
+22.02.23
+Dodać klasę reprezentującą zabawkę z polami zawierającymi nazwę, minimalny wiek i cenę
+Dodać enum z rodzajami zabawek (lalki, klocki, pojazdy, pluszaki, figurki, puzzle).
+W enumie pola z numerem, skrótem (1 albo 2 znaki), nazwą polską
+
+Dodać klasy z rodzajami zabawek (np klasa reprezentująca lalkę będzie miała zakodowany odpowiedni enum), z dodatkowymi polami
+charakterystycznymi dla danej zabawki (ilość elementów, czy sterowane, czy ruchome, ilość strojów)
+
+// Stream'ami:
+W klasie demo dodać kilka zabawek różnych typów
+Wrzucić wszystkie do 1 kolekcji (Lista lub Set)
+
+Następnie:
+- Wypisać wszystkie które są przeznaczone dla 12 lat i więcej
+- Wypisać wszystkie puzzle i klocki
+- Policzyć sumę wartości wszystkich lalek
+
+Kolejna część...
+Dodać możliwość wprowadzenia nowej zabawki z numerem rodzaju (tego enuma) np new Klocki(1, nazwa, wiek, cena, ...) [FABRYKA]
+Wypisać do pliku listę zabawek - alfabetycznie
+Wypisać do pliku listę zabawek - sortując po cenie malejąco [TUTAJ SKOŃCZYŁEM]...
+
+Wypisać do pliku listę zabawek wybierając najdroższą zabawkę danego typu - czyli np najdroższe klocki, najdroższe puzzle itd
+- plik wygenerować w osobnym wątku
+
+Wypisać podsumowanie ile kosztują łącznie zabawki poszczególnych typów - np pluszaki łącznie 300

@@ -80,6 +80,9 @@ public class PersonIOOperations {
         return person;
     }
 
+
+
+
     // Zrobić odczyt i zapis Person do / z pliku tekstowego ale korzystając z Java NIO -
     // macie w bazie wiedzy i ja też pokazywałem przykład
 
@@ -120,10 +123,8 @@ public class PersonIOOperations {
      */
 
 
-
-
-
     // Odczyt z pliku tekstowego korzystając z Java NIO
+
     public Person readFromFileWithNIO(String filename) {
         Path path = Paths.get(filename);
         try {
