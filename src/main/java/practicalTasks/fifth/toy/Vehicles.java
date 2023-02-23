@@ -5,15 +5,16 @@ public class Vehicles extends Toy {
     private String typeOfControl;
     private int amountOfWheels;
 
-    public Vehicles(String name, int minimumAge, double price, TypesOfToys type, String typeOfControl, int amountOfWheels) {
+    public Vehicles(String name, int minimumAge, double price, String typeOfControl, int amountOfWheels) {
         super(name, minimumAge, price);
-        this.type = type;
+        type = TypesOfToys.VEHICLES;
         this.typeOfControl = typeOfControl;
         this.amountOfWheels = amountOfWheels;
     }
 
-    public TypesOfToys getType() {
-        return type;
+    Vehicles(String name, int minimumAge, double price) {
+        super(name, minimumAge, price);
+        this.type = TypesOfToys.VEHICLES;
     }
 
     public String getTypeOfControl() {
@@ -25,11 +26,19 @@ public class Vehicles extends Toy {
     }
 
     @Override
-    public String toString() {
-        return "Vehicles{" +
-                "type=" + type +
-                ", typeOfControl='" + typeOfControl + '\'' +
-                ", amountOfWheels=" + amountOfWheels +
-                "} " + super.toString();
+    public TypesOfToys getToyType() {
+        return type;
+    }
+
+    @Override
+    public String info() {
+        return new StringBuilder(getToyType().getPolishName())
+                .append(": ")
+                .append(super.info())
+                .append(", typeOfControl: ")
+                .append(typeOfControl)
+                .append(", amountOfWheels: ")
+                .append(amountOfWheels)
+                .toString();
     }
 }

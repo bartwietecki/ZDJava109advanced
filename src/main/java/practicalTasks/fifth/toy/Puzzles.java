@@ -5,15 +5,16 @@ public class Puzzles extends Toy {
     private String size;
     private int quantity;
 
-    public Puzzles(String name, int minimumAge, double price, TypesOfToys type, String size, int quantity) {
+    public Puzzles(String name, int minimumAge, double price, String size, int quantity) {
         super(name, minimumAge, price);
-        this.type = type;
+        type = TypesOfToys.PUZZLES;
         this.size = size;
         this.quantity = quantity;
     }
 
-    public TypesOfToys getType() {
-        return type;
+    Puzzles(String name, int minimumAge, double price) {
+        super(name, minimumAge, price);
+        this.type = TypesOfToys.PUZZLES ;
     }
 
     public String getSize() {
@@ -25,11 +26,20 @@ public class Puzzles extends Toy {
     }
 
     @Override
-    public String toString() {
-        return "Puzzles{" +
-                "type=" + type +
-                ", size='" + size + '\'' +
-                ", quantity=" + quantity +
-                "} " + super.toString();
+    public TypesOfToys getToyType() {
+        return type;
     }
+
+    @Override
+    public String info() {
+        return new StringBuilder(getToyType().getPolishName())
+                .append(": ")
+                .append(super.info())
+                .append(", size: ")
+                .append(size)
+                .append(", quantity: ")
+                .append(quantity)
+                .toString();
+    }
+
 }

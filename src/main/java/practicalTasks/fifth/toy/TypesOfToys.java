@@ -30,13 +30,21 @@ public enum TypesOfToys {
         return polishName;
     }
 
-    //TODO Grzegorz musi zobaczyć jak to sensownie zrobić - na razie mam to zostawić (zrobienie Fabryki)
-
-    // metoda
+    // metoda - znalezienie po numerze
     public static TypesOfToys findByNumber(int number) {
         for (TypesOfToys n : TypesOfToys.values()) {
             if(n.number == number) {
                 return n;
+            }
+        }
+        return null;
+    }
+
+    // metoda - znalezienie po skrócie
+    public static TypesOfToys findByShortcut(String shortcut) {
+        for(TypesOfToys type : TypesOfToys.values()) {
+            if (type.shortcut.equalsIgnoreCase(shortcut)) {
+                return type;
             }
         }
         return null;

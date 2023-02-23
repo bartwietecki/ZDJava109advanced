@@ -5,15 +5,16 @@ public class Dolls extends Toy {
     private int numberOfOutfits;
     private String hairColor;
 
-    public Dolls(String name, int minimumAge, double price, TypesOfToys type, int numberOfOutfits, String hairColor) {
+    public Dolls(String name, int minimumAge, double price, int numberOfOutfits, String hairColor) {
         super(name, minimumAge, price);
-        this.type = type;
+        type = TypesOfToys.DOLLS;
         this.numberOfOutfits = numberOfOutfits;
         this.hairColor = hairColor;
     }
 
-    public TypesOfToys getType() {
-        return type;
+    Dolls(String name, int minimumAge, double price) {
+        super(name, minimumAge, price);
+        this.type = TypesOfToys.DOLLS;
     }
 
     public int getNumberOfOutfits() {
@@ -25,11 +26,19 @@ public class Dolls extends Toy {
     }
 
     @Override
-    public String toString() {
-        return "Dolls{" +
-                "type=" + type +
-                ", numberOfOutfits=" + numberOfOutfits +
-                ", hairColor='" + hairColor + '\'' +
-                "} " + super.toString();
+    public TypesOfToys getToyType() {
+        return type;
+    }
+
+    @Override
+    public String info() {
+        return new StringBuilder(getToyType().getPolishName())
+                .append(": ")
+                .append(super.info())
+                .append(", numberOfOutfits: ")
+                .append(numberOfOutfits)
+                .append(", hairColor: ")
+                .append(hairColor)
+                .toString();
     }
 }

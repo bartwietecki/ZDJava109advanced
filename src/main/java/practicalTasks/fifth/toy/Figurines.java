@@ -5,15 +5,16 @@ public class Figurines extends Toy {
     private String material;
     private boolean movable;
 
-    public Figurines(String name, int minimumAge, double price, TypesOfToys type, String material, boolean movable) {
+    public Figurines(String name, int minimumAge, double price, String material, boolean movable) {
         super(name, minimumAge, price);
-        this.type = type;
+        type = TypesOfToys.FIGURINES;
         this.material = material;
         this.movable = movable;
     }
 
-    public TypesOfToys getType() {
-        return type;
+    Figurines(String name, int minimumAge, double price) {
+        super(name, minimumAge, price);
+        this.type = TypesOfToys.FIGURINES;
     }
 
     public String getMaterial() {
@@ -25,11 +26,19 @@ public class Figurines extends Toy {
     }
 
     @Override
-    public String toString() {
-        return "Figurines{" +
-                "type=" + type +
-                ", material='" + material + '\'' +
-                ", movable=" + movable +
-                "} " + super.toString();
+    public TypesOfToys getToyType() {
+        return type;
+    }
+
+    @Override
+    public String info() {
+        return new StringBuilder(getToyType().getPolishName())
+                .append(": ")
+                .append(super.info())
+                .append(", material: ")
+                .append(material)
+                .append(", movable: ")
+                .append(movable)
+                .toString();
     }
 }

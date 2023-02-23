@@ -5,15 +5,16 @@ public class StuffedToys extends Toy {
     private String size;
     private String typeOfFilling;
 
-    public StuffedToys(String name, int minimumAge, double price, TypesOfToys type, String size, String typeOfFilling) {
+    public StuffedToys(String name, int minimumAge, double price, String size, String typeOfFilling) {
         super(name, minimumAge, price);
-        this.type = type;
+        type = TypesOfToys.STUFFED_TOYS;
         this.size = size;
         this.typeOfFilling = typeOfFilling;
     }
 
-    public TypesOfToys getType() {
-        return type;
+    StuffedToys(String name, int minimumAge, double price) {
+        super(name, minimumAge, price);
+        this.type = TypesOfToys.STUFFED_TOYS;
     }
 
     public String getSize() {
@@ -25,11 +26,19 @@ public class StuffedToys extends Toy {
     }
 
     @Override
-    public String toString() {
-        return "StuffedToys{" +
-                "type=" + type +
-                ", size='" + size + '\'' +
-                ", typeOfFilling='" + typeOfFilling + '\'' +
-                "} " + super.toString();
+    public TypesOfToys getToyType() {
+        return type;
+    }
+
+    @Override
+    public String info() {
+        return new StringBuilder(getToyType().getPolishName())
+                .append(": ")
+                .append(super.info())
+                .append(", size: ")
+                .append(size)
+                .append(", typeOfFilling: ")
+                .append(typeOfFilling)
+                .toString();
     }
 }

@@ -1,7 +1,6 @@
 package practicalTasks.fifth.toy;
 
-public class Toy {
-    private TypesOfToys number;
+public abstract class Toy {
     private String name;
     private int minimumAge;
     private double price;
@@ -12,54 +11,57 @@ public class Toy {
         this.price = price;
     }
 
-    //TODO Grzegorz musi zobaczyć jak to sensownie zrobić - na razie mam to zostawić (zrobienie Fabryki)
-
-//     drugi konstruktor aby dodać możliwość wprowadzenia nowej zabawki
-    public Toy(int number, String name, int minimumAge, double price) {
-        this.number = TypesOfToys.findByNumber(number);
-        this.name = name;
-        this.minimumAge = minimumAge;
-        this.price = price;
-    }
-
-    public TypesOfToys getNumber() {
-        return number;
-    }
-
-    public void setNumber(TypesOfToys number) {
-        this.number = number;
-    }
-
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public int getMinimumAge() {
         return minimumAge;
     }
 
-    public void setMinimumAge(int minimumAge) {
-        this.minimumAge = minimumAge;
-    }
-
     public double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public abstract TypesOfToys getToyType();
+
+    String info() {
+        return new StringBuilder(name)
+                .append(", minimum age: ")
+                .append(minimumAge)
+                .append(", price: ")
+                .append(price)
+                .toString();
     }
 
-    @Override
-    public String toString() {
-        return "Toy{" +
-                "name='" + name + '\'' +
-                ", minimumAge=" + minimumAge +
-                ", price=" + price +
-                '}';
+    public static Toy returnToyByTypeShortcut(String shortcut, String name, int minimumAge, double price) {
+        TypesOfToys typesOfToys = TypesOfToys.findByShortcut(shortcut);
+
+        return returnToyByType(name, minimumAge, price, typesOfToys);
+    }
+
+    public static Toy returnToyByType(String name, int minimumAge, double price, TypesOfToys typesOfToys) {
+        switch (typesOfToys) {
+            case DOLLS:
+                return new Dolls(name, minimumAge, price);
+            case BLOCKS:
+                return new Blocks(name, minimumAge, price);
+            case PUZZLES:
+                return new Puzzles(name, minimumAge, price);
+            case VEHICLES:
+                return new Vehicles(name, minimumAge, price);
+            case STUFFED_TOYS:
+                return new StuffedToys(name, minimumAge, price);
+            case FIGURINES:
+                return new Figurines(name, minimumAge, price);
+            default:
+                throw new IllegalArgumentException("Toy type undefined");
+        }
+    }
+
+    public static Toy returnToyByTypeNumber(int number, String name, int minimumAge, double price) {
+        TypesOfToys typesOfToys = TypesOfToys.findByNumber(number);
+
+        return returnToyByType(name, minimumAge, price, typesOfToys);
     }
 }
